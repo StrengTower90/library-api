@@ -68,7 +68,6 @@ namespace LibraryAPI.Controllers.v1
             // return new List<AuthorDTO>();
             // var newPaginationDTO = new PaginationDTO(1,1);
             // return await serviceAuthorsV1.Get(newPaginationDTO);
-            throw new ApplicationException("Debes remover esta linea");
             return await serviceAuthorsV1.Get(paginationDTO);
         }
 
