@@ -13,7 +13,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json.Serialization;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilderABC(args);
 
 /* Dictionary on memory */
 //var dictionaryConfigurations = new Dictionary<string, string>
