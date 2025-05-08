@@ -99,32 +99,33 @@ namespace LibraryAPI.Controllers.v1
             return authorDTO;
         }
 
-        private void GenerateLinks(AuthorDTO authorDTO)
-        {
-            authorDTO.Links.Add(
-                new DatasHATEOASDTO(
-                    Link: Url.Link("RetrieveAuthorV1", new { id = authorDTO.Id })!,
-                    Description: "self",
-                    Method: "GET"));
 
-            authorDTO.Links.Add(
-                new DatasHATEOASDTO(
-                    Link: Url.Link("UpdateAuthorV1", new { id = authorDTO.Id })!,
-                    Description: "author-update",
-                    Method: "PUT"));
+        // private void GenerateLinks(AuthorDTO authorDTO)
+        // {
+        //     authorDTO.Links.Add(
+        //         new DatasHATEOASDTO(
+        //             Link: Url.Link("RetrieveAuthorV1", new { id = authorDTO.Id })!,
+        //             Description: "self",
+        //             Method: "GET"));
 
-            authorDTO.Links.Add(
-                new DatasHATEOASDTO(
-                    Link: Url.Link("PatchAuthorV1", new { id = authorDTO.Id })!,
-                    Description: "author-patch",
-                    Method: "PATCH"));
+        //     authorDTO.Links.Add(
+        //         new DatasHATEOASDTO(
+        //             Link: Url.Link("UpdateAuthorV1", new { id = authorDTO.Id })!,
+        //             Description: "author-update",
+        //             Method: "PUT"));
 
-            authorDTO.Links.Add(
-                new DatasHATEOASDTO(
-                    Link: Url.Link("DeleteAuthorV1", new { id = authorDTO.Id })!,
-                    Description: "author-delete",
-                    Method: "DELETE"));
-        }
+        //     authorDTO.Links.Add(
+        //         new DatasHATEOASDTO(
+        //             Link: Url.Link("PatchAuthorV1", new { id = authorDTO.Id })!,
+        //             Description: "author-patch",
+        //             Method: "PATCH"));
+
+        //     authorDTO.Links.Add(
+        //         new DatasHATEOASDTO(
+        //             Link: Url.Link("DeleteAuthorV1", new { id = authorDTO.Id })!,
+        //             Description: "author-delete",
+        //             Method: "DELETE"));
+        // }
 
         [HttpGet("filter", Name = "FilterAuthorsV1")]
         [AllowAnonymous]
