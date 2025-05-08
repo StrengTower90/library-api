@@ -2,16 +2,16 @@ name: Hola mundo
 
 on: # Indicate under what conditions the work-flow is executed
   workflow_dispatch: # manual execution
-  push:
-    branches: 
-      - main
-    paths:
-      - 'LibraryAPI/**' # The preceding ** indicate wiht any file in LibraryAPI
-      - 'LibraryAPITests/**'
-      - '.github/workflows/hola-mundo.yml'
-  pull_request:
-    branches:
-      - main
+ # push:
+  #  branches: 
+   #   - main
+    #paths:
+     # - 'LibraryAPI/**' # The preceding ** indicate wiht any file in LibraryAPI
+      #- 'LibraryAPITests/**'
+      #- '.github/workflows/hola-mundo.yml'
+  #pull_request:
+   # branches:
+    #  - main
 
 jobs: # The actions that will execute in this workflow (task set)
   saludar: # this name of the first task tipically a task containt a set of Steps
