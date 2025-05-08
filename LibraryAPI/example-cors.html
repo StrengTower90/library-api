@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title></title>
+</head> 
+
+<body>
+    <h1>Test CORS from Web API (press F12)</h1>
+    <script>
+        const urlWebAPI = 'https://localhost:7169/api/authors';
+        comsumeWebAPI();
+
+        async function comsumeWebAPI() {
+            
+           try{
+
+            const response = await fetch(urlWebAPI, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const json = await response.json();
+            console.log(json);
+
+            // const headers = Object.fromEntries(response.headers.entries());
+            const headers = Array.from(response.headers.entries());
+            console.log(headers);
+
+           } catch (error){
+            console.error('Error:', error);
+           }
+
+        }
+    </script>
+</body>
+</html>

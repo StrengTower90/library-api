@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9c4002d4-0c2c-49bd-9afe-06ac465b33dd/resourceGroups/appsvc_windows_mexicocentral/providers/Microsoft.Web/sites/library-api-vs-code",
+    "appService.deploySubpath": "LibraryAPI\\bin\\Publish"
+}
