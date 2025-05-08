@@ -12,6 +12,8 @@ on:
 # Environment Variables      
 env:
   VERSION_DOTNET: 9
+  AZURE_APP_SERVICE_NOMBRE: library-api-vs-code
+  AZURE_APP_SERVICE_UBICACION_PAQUETE: '.' # The package will be located in the same location that I'm
 
 jobs:
   build:
@@ -35,6 +37,35 @@ jobs:
 
       - name: Realizar pruebas
         run: dotnet test --no-build
+        
+      - name: Publicar el web API # This step create the buil
+        run: dotnet publish $proyecto -c Release -o miapp --runtime win-x86
+
+      - name: Cargar Artefacto # This step take the build into an artifac
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          path: ./miapp
+          name: build # with this name the artifac, to be used for another process
+  despliegue:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build # Tipically the jobs could load simultaniuslly but we need build finish first
+    steps: 
+      - name: Obtener los artefactos
+        uses: actions/download-artifact@v4.3.0
+        with:
+          name: build
+
+      - name: Desplegar al Azure App Service
+        uses: Azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_APP_SERVICE_NOMBRE }}
+          publish-profile: ${{ secrets.AZURE_PERFIL_PUBLICO }}
+          package: ${{ env.AZURE_APP_SERVICE_UBICACION_PAQUETE }}
+        
+        
+          
           
       
 
